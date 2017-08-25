@@ -8,6 +8,10 @@ echo $j
  
  for url in $(cat intel.txt);do host $url | grep "has address" | grep "intel"; done
 
+//Bash script to read domain from file and perform xmlrpc request
+for url in $(cat apigee_domain_list);do echo $url; curl --data @hello.txt $url/xmlrpc.php; done
+
+
 cat index.html | grep "href=" | cut -d "/" -f3 |grep "intel.com" | cut -d '"' -f1
 
 
