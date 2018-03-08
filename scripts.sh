@@ -17,4 +17,5 @@ cat index.html | grep "href=" | cut -d "/" -f3 |grep "intel.com" | cut -d '"' -f
 
 for url in $(cat raw_domain.txt); do host $url | grep "has address" | grep "twitter" | sort -u; done > temp;cat temp | cut -d " " -f1 | sort -u > tempnew
 
+for url in $(cat domain.txt); do echo *********$url************  && curl --silent --connect-timeout 3 -I https://$url | grep "img-src 'self' data: www.google-analytics.com" ;  done 
 
